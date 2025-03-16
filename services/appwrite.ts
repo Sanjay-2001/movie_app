@@ -48,9 +48,10 @@ export const getTrendingMovies = async (): Promise<
       Query.orderDesc("count"),
     ]);
 
+    console.log("Raw Appwrite response:", result); // Log the raw response
     return result.documents as unknown as TrendingMovie[];
   } catch (error) {
-    console.error(error);
+    console.error("Error fetching trending movies:", error);
     return undefined;
   }
 };
